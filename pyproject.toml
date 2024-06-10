@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "fake-dragonflydb"
 packages = [
-    { include = "fakedragonfly" },
+    { include = "fake-dragonflydb" },
 ]
 version = "0.0.1"
 description = "Python implementation of dragonfly DB API, can be used for testing purposes."
@@ -86,7 +86,7 @@ markers = [
 asyncio_mode = "strict"
 
 [tool.mypy]
-packages = ['fakedragonfly', ]
+packages = ['fake-dragonflydb', ]
 strict = true
 follow_imports = "silent"
 ignore_missing_imports = true
