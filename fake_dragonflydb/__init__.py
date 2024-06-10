@@ -1,12 +1,12 @@
 from ._server import (
     FakeServer,
-    FakeRedis,
-    FakeStrictRedis,
+    FakeDragonDB,
+    FakeStrictDragonDB,
     FakeConnection,
 )
 from .aioredis import (
-    FakeRedis as FakeAsyncRedis,
-    FakeConnection as FakeAsyncConnection,
+    FakeAsyncDragonDB,
+    FakeAsyncConnection,
 )
 
 try:
@@ -23,9 +23,9 @@ __bugtrack_url__ = "https://github.com/cunla/fakeredis/issues"
 
 __all__ = [
     "FakeServer",
-    "FakeRedis",
-    "FakeStrictRedis",
+    "FakeDragonDB",
+    "FakeStrictDragonDB",
     "FakeConnection",
-    "FakeAsyncRedis",
+    "FakeAsyncDragonDB",
     "FakeAsyncConnection",
 ]

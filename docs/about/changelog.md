@@ -45,7 +45,7 @@ description: Change log of all fakeredis releases
 
 ### 🚀 Features
 
-- Support for setting LUA version from environment variable  `FAKEREDIS_LUA_VERSION` #287
+- Support for setting LUA version from environment variable  `FAKEDRAGONDB_LUA_VERSION` #287
 - Support for loading LUA binary modules in fakeredis #304
 
 ### 🐛 Bug Fixes

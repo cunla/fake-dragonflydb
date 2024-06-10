@@ -249,8 +249,8 @@ async def test_xdel(async_redis: redis.asyncio.Redis):
 
 @pytest.mark.fake
 async def test_from_url():
-    r0 = aioredis.FakeRedis.from_url('redis://localhost?db=0')
-    r1 = aioredis.FakeRedis.from_url('redis://localhost?db=1')
+    r0 = aioredis.FakeAsyncDragonDB.from_url('redis://localhost?db=0')
+    r1 = aioredis.FakeAsyncDragonDB.from_url('redis://localhost?db=1')
     # Check that they are indeed different databases
     await r0.set('foo', 'a')
     await r1.set('foo', 'b')
@@ -262,8 +262,8 @@ async def test_from_url():
 
 @pytest.mark.fake
 async def test_from_url_with_version():
-    r0 = aioredis.FakeRedis.from_url('redis://localhost?db=0', version=(6,))
-    r1 = aioredis.FakeRedis.from_url('redis://localhost?db=1', version=(6,))
+    r0 = aioredis.FakeAsyncDragonDB.from_url('redis://localhost?db=0', version=(6,))
+    r1 = aioredis.FakeAsyncDragonDB.from_url('redis://localhost?db=1', version=(6,))
     # Check that they are indeed different databases
     await r0.set('foo', 'a')
     await r1.set('foo', 'b')
@@ -275,7 +275,7 @@ async def test_from_url_with_version():
 
 @fake_only
 async def test_from_url_with_server(async_redis, fake_server):
-    r2 = aioredis.FakeRedis.from_url('redis://localhost', server=fake_server)
+    r2 = aioredis.FakeAsyncDragonDB.from_url('redis://localhost', server=fake_server)
     await async_redis.set('foo', 'bar')
     assert await r2.get('foo') == b'bar'
     await r2.connection_pool.disconnect()
@@ -283,13 +283,13 @@ async def test_from_url_with_server(async_redis, fake_server):
 
 @pytest.mark.fake
 async def test_without_server():
-    r = aioredis.FakeRedis()
+    r = aioredis.FakeAsyncDragonDB()
     assert await r.ping()
 
 
 @pytest.mark.fake
 async def test_without_server_disconnected():
-    r = aioredis.FakeRedis(connected=False)
+    r = aioredis.FakeAsyncDragonDB(connected=False)
     with pytest.raises(redis.asyncio.ConnectionError):
         await r.ping()
 
@@ -297,7 +297,7 @@ async def test_without_server_disconnected():
 @pytest.mark.fake
 async def test_async():
     # arrange
-    cache = aioredis.FakeRedis()
+    cache = aioredis.FakeAsyncDragonDB()
     # act
     await cache.set("fakeredis", "plz")
     x = await cache.get("fakeredis")
@@ -310,7 +310,7 @@ async def test_async():
 @pytest.mark.fake
 async def test_connection_disconnect(nowait):
     server = FakeServer()
-    r = aioredis.FakeRedis(server=server)
+    r = aioredis.FakeAsyncDragonDB(server=server)
     conn = await r.connection_pool.get_connection("_")
     assert conn is not None
 
@@ -321,7 +321,7 @@ async def test_connection_disconnect(nowait):
 
 async def test_connection_with_username_and_password():
     server = FakeServer()
-    r = aioredis.FakeRedis(server=server, username='username', password='password')
+    r = aioredis.FakeAsyncDragonDB(server=server, username='username', password='password')
 
     test_value = "this_is_a_test"
     await r.hset('test:key', "test_hash", test_value)

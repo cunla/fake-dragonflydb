@@ -140,7 +140,7 @@ class FakeConnection(FakeBaseConnectionMixin, redis.Connection):
         return self.server_key
 
 
-class FakeRedisMixin:
+class FakeDragonDBMixin:
     def __init__(
             self, *args: Any,
             server: Optional[FakeServer] = None,
@@ -221,9 +221,9 @@ class FakeRedisMixin:
         return cls(connection_pool=pool)
 
 
-class FakeStrictRedis(FakeRedisMixin, redis.StrictRedis):  # type: ignore
+class FakeStrictDragonDB(FakeDragonDBMixin, redis.StrictRedis):  # type: ignore
     pass
 
 
-class FakeRedis(FakeRedisMixin, redis.Redis):  # type: ignore
+class FakeDragonDB(FakeDragonDBMixin, redis.Redis):  # type: ignore
     pass

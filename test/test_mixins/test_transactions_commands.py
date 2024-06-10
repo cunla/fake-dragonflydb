@@ -321,7 +321,7 @@ def test_get_within_pipeline(r: redis.Redis):
 
 @pytest.mark.fake
 def test_get_within_pipeline_w_host():
-    r = fakeredis.FakeRedis('localhost')
+    r = fakeredis.FakeAsyncDragonDB('localhost')
     r.set("test", "foo")
     r.set("test2", "foo2")
     expected_keys = set(r.keys())
@@ -333,7 +333,7 @@ def test_get_within_pipeline_w_host():
 
 @pytest.mark.fake
 def test_get_within_pipeline_no_args():
-    r = fakeredis.FakeRedis()
+    r = fakeredis.FakeAsyncDragonDB()
     r.set("test", "foo")
     r.set("test2", "foo2")
     expected_keys = set(r.keys())

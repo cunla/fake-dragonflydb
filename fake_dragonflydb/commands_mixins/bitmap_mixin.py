@@ -141,7 +141,6 @@ class BitmapCommandsMixin:
 
     @staticmethod
     def _bitop(op: Callable[[Any, Any], Any], *keys: CommandItem) -> Any:
-        value = keys[0].value
         ans = keys[0].value
         i = 1
         while i < len(keys):
@@ -198,7 +197,7 @@ class BitmapCommandsMixin:
         elif overflow == b"SAT":
             if new_value + incr > max_value:
                 new_value, incr = max_value, 0
-            # REDIS only checks for unsigned underflow on negative incr:
+            # only checks for unsigned underflow on negative incr:
             if (encoding.signed or incr < 0) and new_value + incr < min_value:
                 new_value, incr = min_value, 0
 

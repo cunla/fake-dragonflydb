@@ -39,7 +39,7 @@ import pytest
 @pytest.fixture
 def redis_client(request):
     import fakeredis
-    redis_client = fakeredis.FakeRedis()
+    redis_client = fakeredis.FakeAsyncDragonDB()
     return redis_client
 ```
 

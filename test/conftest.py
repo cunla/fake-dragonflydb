@@ -9,7 +9,7 @@ from fake_dragonflydb._server import _create_version
 
 
 def _check_lua_module_supported() -> bool:
-    redis = fakeredis.FakeRedis(lua_modules={'cjson'})
+    redis = fakeredis.FakeAsyncDragonDB(lua_modules={'cjson'})
     try:
         redis.eval("return cjson.encode({})", 0)
         return True

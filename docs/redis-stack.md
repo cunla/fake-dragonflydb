@@ -82,7 +82,7 @@ If you wish to have Lua scripting support (this includes features like ``redis.l
 Lua), you will need [lupa][10], you can install it using `pip install 'fakeredis[lua]'`
 
 By default, FakeRedis works with LUA version 5.1, to use a different version supported by lupa,
-set the `FAKEREDIS_LUA_VERSION` environment variable to the desired version (e.g., `5.4`).
+set the `FAKEDRAGONDB_LUA_VERSION` environment variable to the desired version (e.g., `5.4`).
 
 ### LUA binary modules
 

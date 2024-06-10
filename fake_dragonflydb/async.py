@@ -115,7 +115,7 @@ class FakeWriter:
             self._socket.sendall(chunk)  # type:ignore
 
 
-class FakeConnection(FakeBaseConnectionMixin, redis_async.Connection):
+class FakeAsyncConnection(FakeBaseConnectionMixin, redis_async.Connection):
     async def _connect(self) -> None:
         if not self._server.connected:
             raise redis_async.ConnectionError(msgs.CONNECTION_ERROR_MSG)
@@ -181,7 +181,7 @@ class FakeConnection(FakeBaseConnectionMixin, redis_async.Connection):
         return self.server_key
 
 
-class FakeRedis(redis_async.Redis):
+class FakeAsyncDragonDB(redis_async.Redis):
     def __init__(
             self,
             *,
@@ -223,7 +223,7 @@ class FakeRedis(redis_async.Redis):
                 client_name=client_name,
                 server=server,
                 connected=connected,
-                connection_class=FakeConnection,
+                connection_class=FakeAsyncConnection,
                 max_connections=max_connections,
                 version=version,
                 lua_modules=lua_modules,
@@ -247,7 +247,7 @@ class FakeRedis(redis_async.Redis):
     def from_url(cls, url: str, **kwargs: Any) -> redis_async.Redis:
         self = super().from_url(url, **kwargs)
         pool = self.connection_pool  # Now override how it creates connections
-        pool.connection_class = FakeConnection
+        pool.connection_class = FakeAsyncConnection
         pool.connection_kwargs.pop("username", None)
         pool.connection_kwargs.pop("password", None)
         return self

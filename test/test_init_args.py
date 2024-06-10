@@ -26,10 +26,10 @@ def test_multidb(create_redis):
 class TestInitArgs:
     def test_singleton(self):
         shared_server = fakeredis.FakeServer()
-        r1 = fakeredis.FakeRedis()
-        r2 = fakeredis.FakeRedis(server=fakeredis.FakeServer())
-        r3 = fakeredis.FakeRedis(server=shared_server)
-        r4 = fakeredis.FakeRedis(server=shared_server)
+        r1 = fakeredis.FakeAsyncDragonDB()
+        r2 = fakeredis.FakeAsyncDragonDB(server=fakeredis.FakeServer())
+        r3 = fakeredis.FakeAsyncDragonDB(server=shared_server)
+        r4 = fakeredis.FakeAsyncDragonDB(server=shared_server)
 
         r1.set('foo', 'bar')
         r3.set('bar', 'baz')

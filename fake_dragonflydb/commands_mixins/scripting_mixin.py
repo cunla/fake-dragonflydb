@@ -24,7 +24,7 @@ __LUA_RUNTIMES_MAP = {
     "5.3": "lupa.lua53",
     "5.4": "lupa.lua54",
 }
-LUA_VERSION = os.getenv("FAKEREDIS_LUA_VERSION", "5.1")
+LUA_VERSION = os.getenv("FAKEDRAGONDB_LUA_VERSION", "5.4")
 
 with lupa.allow_lua_module_loading():
     LUA_MODULE = importlib.import_module(__LUA_RUNTIMES_MAP[LUA_VERSION])
