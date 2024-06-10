@@ -1,8 +1,8 @@
 from typing import Callable, Set, Any, List, Optional
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, Key, CommandItem
-from fakeredis._helpers import OK, SimpleError, Database, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, Key, CommandItem
+from fake_dragonflydb._helpers import OK, SimpleError, Database, SimpleString
 
 
 class TransactionsCommandsMixin:

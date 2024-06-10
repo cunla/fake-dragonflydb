@@ -1,7 +1,7 @@
 import pytest
 import redis
 
-from fakeredis import _msgs as msgs
+from fake_dragonflydb import _msgs as msgs
 
 bloom_tests = pytest.importorskip("probables")
 

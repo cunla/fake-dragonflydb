@@ -1,6 +1,6 @@
 from typing import Optional, Set
 
-from fakeredis.stack import (
+from fake_dragonflydb.stack import (
     JSONCommandsMixin, BFCommandsMixin, CFCommandsMixin, CMSCommandsMixin, TopkCommandsMixin,
     TDigestCommandsMixin,
 )

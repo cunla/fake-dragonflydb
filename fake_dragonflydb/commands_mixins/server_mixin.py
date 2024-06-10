@@ -3,9 +3,9 @@ import os
 import time
 from typing import Any, List, Optional, Dict
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, DbIndex
-from fakeredis._helpers import OK, SimpleError, casematch, BGSAVE_STARTED, Database, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, DbIndex
+from fake_dragonflydb._helpers import OK, SimpleError, casematch, BGSAVE_STARTED, Database, SimpleString
 
 _COMMAND_INFO: Optional[Dict[bytes, List[Any]]] = None
 
@@ -30,7 +30,7 @@ def _load_command_info() -> None:
 class ServerCommandsMixin:
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
-        from fakeredis._server import FakeServer
+        from fake_dragonflydb._server import FakeServer
         self._server: "FakeServer"
         self._db: Database
 

@@ -7,9 +7,9 @@ import random
 import sys
 from typing import Union, Optional, List, Tuple, Callable, Any, Dict
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import (
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import (
     command,
     Key,
     Int,
@@ -20,13 +20,13 @@ from fakeredis._commands import (
     StringTest,
     fix_range,
 )
-from fakeredis._helpers import (
+from fake_dragonflydb._helpers import (
     SimpleError,
     casematch,
     null_terminate,
     Database,
 )
-from fakeredis._zset import ZSet
+from fake_dragonflydb._zset import ZSet
 
 SORTED_SET_METHODS = {
     "ZUNIONSTORE": lambda s1, s2: s1 | s2,

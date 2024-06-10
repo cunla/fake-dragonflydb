@@ -6,7 +6,7 @@ from test.testtools import raw_command
 
 def test_asyncioio_is_used():
     """Redis 4.2+ has support for asyncio and should be preferred over aioredis"""
-    from fakeredis import aioredis
+    from fake_dragonflydb import aioredis
     assert not hasattr(aioredis, "__version__")
 
 

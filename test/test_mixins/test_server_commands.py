@@ -5,7 +5,7 @@ import pytest
 import redis
 from redis.exceptions import ResponseError
 
-from fakeredis._commands import SUPPORTED_COMMANDS
+from fake_dragonflydb._commands import SUPPORTED_COMMANDS
 from test.testtools import fake_only
 
 

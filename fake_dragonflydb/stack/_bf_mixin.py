@@ -3,10 +3,10 @@ from typing import Any, List, Union
 
 from probables import ExpandingBloomFilter
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import command, Key, CommandItem, Float, Int
-from fakeredis._helpers import SimpleError, OK, casematch, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import command, Key, CommandItem, Float, Int
+from fake_dragonflydb._helpers import SimpleError, OK, casematch, SimpleString
 
 
 class ScalableBloomFilter(ExpandingBloomFilter):

@@ -5,7 +5,7 @@ import pytest
 import redis
 from redis.exceptions import ResponseError
 
-from fakeredis import _msgs as msgs
+from fake_dragonflydb import _msgs as msgs
 from test.testtools import raw_command
 
 

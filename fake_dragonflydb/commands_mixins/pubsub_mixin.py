@@ -1,8 +1,8 @@
 from typing import Tuple, Any, Dict, Callable, List, Iterable
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command
-from fakeredis._helpers import NoResponse, compile_pattern, SimpleError
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command
+from fake_dragonflydb._helpers import NoResponse, compile_pattern, SimpleError
 
 
 class PubSubCommandsMixin:

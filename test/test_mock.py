@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import redis
 
-from fakeredis import FakeRedis
+from fake_dragonflydb import fake_dragonflydb
 
 
 def test_mock():

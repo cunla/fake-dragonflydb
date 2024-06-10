@@ -4,10 +4,10 @@ import random
 import time
 from typing import Any, List, Optional, Tuple
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import Key, Int, Float, command, CommandItem
-from fakeredis._helpers import OK, SimpleError, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import Key, Int, Float, command, CommandItem
+from fake_dragonflydb._helpers import OK, SimpleError, SimpleString
 
 random.seed(time.time())
 

@@ -1,8 +1,8 @@
 from typing import Any, List, Union
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, DbIndex
-from fakeredis._helpers import SimpleError, OK, SimpleString, Database
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, DbIndex
+from fake_dragonflydb._helpers import SimpleError, OK, SimpleString, Database
 
 PONG = SimpleString(b"PONG")
 

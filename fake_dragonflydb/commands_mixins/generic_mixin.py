@@ -3,9 +3,9 @@ import pickle
 import random
 from typing import Tuple, Any, Callable, List
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import (
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import (
     command,
     Key,
     Int,
@@ -15,8 +15,8 @@ from fakeredis._commands import (
     SortFloat,
     delete_keys, Item,
 )
-from fakeredis._helpers import compile_pattern, SimpleError, OK, casematch, Database, SimpleString
-from fakeredis._zset import ZSet
+from fake_dragonflydb._helpers import compile_pattern, SimpleError, OK, casematch, Database, SimpleString
+from fake_dragonflydb._zset import ZSet
 
 
 class GenericCommandsMixin:

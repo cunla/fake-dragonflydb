@@ -4,8 +4,8 @@ import pytest
 import pytest_asyncio
 import redis
 
-import fakeredis
-from fakeredis._server import _create_version
+import fake_dragonflydb
+from fake_dragonflydb._server import _create_version
 
 
 def _check_lua_module_supported() -> bool:

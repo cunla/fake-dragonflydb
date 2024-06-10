@@ -3,9 +3,9 @@ from typing import Optional, Tuple, List, Any
 
 import probables
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, CommandItem, Int, Key, Float
-from fakeredis._helpers import OK, SimpleString, SimpleError, casematch, Database
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, CommandItem, Int, Key, Float
+from fake_dragonflydb._helpers import OK, SimpleString, SimpleError, casematch, Database
 
 
 class CountMinSketch(probables.CountMinSketch):

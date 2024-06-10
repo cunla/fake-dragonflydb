@@ -5,8 +5,8 @@ from typing import List
 import pytest
 import redis
 
-from fakeredis import _msgs as msgs
-from fakeredis._stream import XStream, StreamRangeTest
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._stream import XStream, StreamRangeTest
 from test import testtools
 
 

@@ -3,9 +3,9 @@ import math
 import random
 from typing import Callable, List, Tuple, Any, Optional
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, Key, Hash, Int, Float, CommandItem
-from fakeredis._helpers import SimpleError, OK, casematch, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, Key, Hash, Int, Float, CommandItem
+from fake_dragonflydb._helpers import SimpleError, OK, casematch, SimpleString
 
 
 class HashCommandsMixin:

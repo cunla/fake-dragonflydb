@@ -9,7 +9,7 @@ import pytest
 import redis
 from redis.client import PubSub
 
-import fakeredis
+import fake_dragonflydb
 from .. import testtools
 from ..testtools import raw_command
 

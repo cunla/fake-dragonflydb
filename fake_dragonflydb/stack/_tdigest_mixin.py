@@ -2,10 +2,10 @@ from typing import List, Callable
 
 from sortedcontainers import SortedList
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import command, CommandItem, Int, Key, Float
-from fakeredis._helpers import SimpleString, SimpleError, OK, Database
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import command, CommandItem, Int, Key, Float
+from fake_dragonflydb._helpers import SimpleString, SimpleError, OK, Database
 
 
 class TDigest(SortedList):

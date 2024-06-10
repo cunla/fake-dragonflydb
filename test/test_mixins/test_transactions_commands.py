@@ -4,7 +4,7 @@ import pytest
 import redis
 import redis.client
 
-import fakeredis
+import fake_dragonflydb
 from .. import testtools
 
 

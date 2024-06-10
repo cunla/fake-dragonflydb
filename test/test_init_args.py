@@ -1,6 +1,6 @@
 import pytest
 
-import fakeredis
+import fake_dragonflydb
 
 
 def test_multidb(create_redis):
@@ -131,7 +131,7 @@ class TestInitArgs:
         assert not r3.exists('foo')
 
     def test_new_server_with_positional_args(self):
-        from fakeredis import FakeRedis
+        from fake_dragonflydb import fake_dragonflydb
 
         # same host, default port and db index
         fake_redis_1 = FakeRedis('localhost')

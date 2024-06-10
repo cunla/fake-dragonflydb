@@ -11,7 +11,7 @@ import pytest_asyncio
 import redis
 import redis.asyncio
 
-from fakeredis import FakeServer, aioredis, FakeAsyncRedis, FakeStrictRedis
+from fake_dragonflydb import FakeServer, aioredis, FakeAsyncRedis, FakeStrictRedis
 from test import testtools
 
 pytestmark = [

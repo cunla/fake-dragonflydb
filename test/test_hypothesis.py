@@ -12,8 +12,8 @@ import redis
 from hypothesis.stateful import rule, initialize, precondition
 from hypothesis.strategies import SearchStrategy
 
-import fakeredis
-from fakeredis._server import _create_version
+import fake_dragonflydb
+from fake_dragonflydb._server import _create_version
 
 self_strategy = st.runner()
 

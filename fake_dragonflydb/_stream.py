@@ -7,8 +7,8 @@ from dataclasses import dataclass
 from operator import itemgetter
 from typing import List, Union, Tuple, Optional, NamedTuple, Dict, Any, Sequence, Generator
 
-from fakeredis._commands import BeforeAny, AfterAny
-from fakeredis._helpers import current_time
+from fake_dragonflydb._commands import BeforeAny, AfterAny
+from fake_dragonflydb._helpers import current_time
 
 
 class StreamEntryKey(NamedTuple):

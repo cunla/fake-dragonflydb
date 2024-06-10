@@ -1,7 +1,7 @@
 import pytest
 
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._helpers import SimpleError
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._helpers import SimpleError
 
 
 def test_extract_args():

@@ -3,7 +3,7 @@ import redis
 import redis.client
 from redis.exceptions import ResponseError
 
-from fakeredis import _msgs as msgs
+from fake_dragonflydb import _msgs as msgs
 from test import testtools
 from test.testtools import raw_command
 

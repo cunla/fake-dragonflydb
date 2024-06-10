@@ -1,11 +1,11 @@
 import functools
 from typing import List, Union, Tuple, Callable, Optional, Any
 
-import fakeredis._msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import Key, command, CommandItem, Int
-from fakeredis._helpers import SimpleError, casematch, OK, current_time, Database, SimpleString
-from fakeredis._stream import XStream, StreamRangeTest, StreamGroup, StreamEntryKey
+import fake_dragonflydb._msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import Key, command, CommandItem, Int
+from fake_dragonflydb._helpers import SimpleError, casematch, OK, current_time, Database, SimpleString
+from fake_dragonflydb._stream import XStream, StreamRangeTest, StreamGroup, StreamEntryKey
 
 
 class StreamsCommandsMixin:

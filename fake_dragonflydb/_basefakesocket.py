@@ -67,7 +67,7 @@ class BaseFakeSocket:
 
     def __init__(self, server: "FakeServer", db: int, *args: Any, **kwargs: Any):  # noqa: F821
         super(BaseFakeSocket, self).__init__(*args, **kwargs)
-        from fakeredis import FakeServer
+        from fake_dragonflydb import FakeServer
         self._server: FakeServer = server
         self._db_num = db
         self._db = server.dbs[self._db_num]

@@ -1,10 +1,10 @@
 import functools
 from typing import Callable, List, Optional, Union, Any
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import Key, command, Int, CommandItem, Timeout, fix_range
-from fakeredis._helpers import OK, SimpleError, SimpleString, casematch, Database
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import Key, command, Int, CommandItem, Timeout, fix_range
+from fake_dragonflydb._helpers import OK, SimpleError, SimpleString, casematch, Database
 
 
 def _list_pop_count(get_slice, key, count):

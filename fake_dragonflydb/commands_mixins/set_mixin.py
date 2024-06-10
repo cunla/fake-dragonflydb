@@ -1,9 +1,9 @@
 import random
 from typing import Callable, Tuple, Any, Optional, List, Union
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import command, Key, Int, CommandItem
-from fakeredis._helpers import OK, SimpleError, casematch, Database, SimpleString
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import command, Key, Int, CommandItem
+from fake_dragonflydb._helpers import OK, SimpleError, casematch, Database, SimpleString
 
 
 def _calc_setop(op: Callable[..., Any], stop_if_missing: bool, key: CommandItem, *keys: CommandItem) -> Any:

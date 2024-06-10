@@ -17,8 +17,8 @@ else:
 
 import redis
 
-from fakeredis._fakesocket import FakeSocket
-from fakeredis._helpers import Database, FakeSelector
+from fake_dragonflydb._fakesocket import FakeSocket
+from fake_dragonflydb._helpers import Database, FakeSelector
 from . import _msgs as msgs
 
 LOGGER = logging.getLogger("fakeredis")

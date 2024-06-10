@@ -7,7 +7,7 @@ import redis
 import redis.client
 from redis.exceptions import ResponseError
 
-import fakeredis
+import fake_dragonflydb
 from test import testtools
 from test.testtools import raw_command
 

@@ -1,9 +1,9 @@
 import math
 from typing import Tuple, Callable, List, Any, Optional
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import (
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import (
     command,
     Key,
     Int,
@@ -12,7 +12,7 @@ from fakeredis._commands import (
     delete_keys,
     fix_range_string, CommandItem,
 )
-from fakeredis._helpers import OK, SimpleError, casematch, Database, SimpleString
+from fake_dragonflydb._helpers import OK, SimpleError, casematch, Database, SimpleString
 
 
 def _lcs(s1: bytes, s2: bytes) -> Tuple[int, bytes, List[List[object]]]:

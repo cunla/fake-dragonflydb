@@ -2,13 +2,13 @@ import sys
 from collections import namedtuple
 from typing import List, Any, Callable, Optional, Union
 
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import command, Key, Float, CommandItem
-from fakeredis._helpers import SimpleError, Database
-from fakeredis._zset import ZSet
-from fakeredis.geo import geohash
-from fakeredis.geo.haversine import distance
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import command, Key, Float, CommandItem
+from fake_dragonflydb._helpers import SimpleError, Database
+from fake_dragonflydb._zset import ZSet
+from fake_dragonflydb.geo import geohash
+from fake_dragonflydb.geo.haversine import distance
 
 UNIT_TO_M = {"km": 0.001, "mi": 0.000621371, "ft": 3.28084, "m": 1}
 

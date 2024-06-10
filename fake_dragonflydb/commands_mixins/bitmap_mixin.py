@@ -1,8 +1,8 @@
 import re
 from typing import Tuple, Any, Callable, List, Optional
 
-from fakeredis import _msgs as msgs
-from fakeredis._commands import (
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._commands import (
     command,
     Key,
     Int,
@@ -11,7 +11,7 @@ from fakeredis._commands import (
     fix_range_string,
     fix_range, CommandItem,
 )
-from fakeredis._helpers import SimpleError, casematch
+from fake_dragonflydb._helpers import SimpleError, casematch
 
 
 class BitfieldEncoding:

@@ -9,12 +9,12 @@ from jsonpath_ng import Root, JSONPath
 from jsonpath_ng.exceptions import JsonPathParserError
 from jsonpath_ng.ext import parse
 
-from fakeredis import _helpers as helpers
-from fakeredis import _msgs as msgs
-from fakeredis._command_args_parsing import extract_args
-from fakeredis._commands import Key, command, delete_keys, CommandItem, Int, Float
-from fakeredis._helpers import SimpleString
-from fakeredis._zset import ZSet
+from fake_dragonflydb import _helpers as helpers
+from fake_dragonflydb import _msgs as msgs
+from fake_dragonflydb._command_args_parsing import extract_args
+from fake_dragonflydb._commands import Key, command, delete_keys, CommandItem, Int, Float
+from fake_dragonflydb._helpers import SimpleString
+from fake_dragonflydb._zset import ZSet
 
 JsonType = Union[str, int, float, bool, None, Dict[str, Any], List[Any]]
 
