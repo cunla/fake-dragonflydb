@@ -215,7 +215,7 @@ class FakeRedisMixin:
         # Now override how it creates connections
         pool.connection_class = FakeConnection
         # Using username and password fails since AUTH is not implemented.
-        # https://github.com/cunla/fakeredis-py/issues/9
+        # https://github.com/cunla/fake-dragonflydb/issues/9
         pool.connection_kwargs.pop("username", None)
         pool.connection_kwargs.pop("password", None)
         return cls(connection_pool=pool)

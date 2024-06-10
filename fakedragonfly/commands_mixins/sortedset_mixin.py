@@ -218,7 +218,7 @@ class SortedSetCommandsMixin:
         key.value[member] = score
         key.updated()
         # For some reason, here it does not ignore the version
-        # https://github.com/cunla/fakeredis-py/actions/runs/3377186364/jobs/5605815202
+        # https://github.com/cunla/fake-dragonflydb/actions/runs/3377186364/jobs/5605815202
         return Float.encode(score, False)
         # return self._encodefloat(score, False)
 

@@ -329,7 +329,7 @@ We'd like to thank all the contributors who worked on this release!
 
 - Implement `XTRIM`
 - Add support for `MAXLEN`, `MAXID`, `LIMIT` arguments for `XADD` command
-- Add support for `ZRANGE` arguments for `ZRANGE` command [#127](https://github.com/cunla/fakeredis-py/issues/127)
+- Add support for `ZRANGE` arguments for `ZRANGE` command [#127](https://github.com/cunla/fake-dragonflydb/issues/127)
 
 ### 🧰 Maintenance
 
@@ -339,11 +339,11 @@ We'd like to thank all the contributors who worked on this release!
 
 ### 🚀 Features
 
-- Support for redis-py 4.5.0 [#125](https://github.com/cunla/fakeredis-py/issues/125)
+- Support for redis-py 4.5.0 [#125](https://github.com/cunla/fake-dragonflydb/issues/125)
 
 ### 🐛 Bug Fixes
 
-- Fix import error for redis-py v3+ [#121](https://github.com/cunla/fakeredis-py/issues/121)
+- Fix import error for redis-py v3+ [#121](https://github.com/cunla/fake-dragonflydb/issues/121)
 
 ## v2.7.1
 
@@ -379,7 +379,7 @@ We'd like to thank all the contributors who worked on this release!
 - Start skeleton for streams commands in `streams_mixin.py` and `test_streams_commands.py`
 - Start migrating documentation to https://fakeredis.readthedocs.io/
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.5.0...v2.6.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.5.0...v2.6.0
 
 ## v2.5.0
 
@@ -402,7 +402,7 @@ We'd like to thank all the contributors who worked on this release!
 
 @Meemaw, @Pichlerdom
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.4.0...v2.5.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.4.0...v2.5.0
 
 ## v2.4.0
 
@@ -414,7 +414,7 @@ We'd like to thank all the contributors who worked on this release!
 
 - Fix a bug the checking type in scan\_iter (#109)
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.3.0...v2.4.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.3.0...v2.4.0
 
 ## v2.3.0
 
@@ -429,7 +429,7 @@ We'd like to thank all the contributors who worked on this release!
 
 - ZADD with XX \& GT allows updates with lower scores (#105)
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.2.0...v2.3.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.2.0...v2.3.0
 
 ## v2.2.0
 
@@ -443,7 +443,7 @@ We'd like to thank all the contributors who worked on this release!
 - Implement script to create issues for missing commands
 - Remove checking for deprecated redis-py versions in tests
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.1.0...v2.2.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.1.0...v2.2.0
 
 ## v2.1.0
 
@@ -467,7 +467,7 @@ We'd like to thank all the contributors who worked on this release!
 
 @hyeongguen-song, @the-wondersmith
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v2.0.0...v2.1.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v2.0.0...v2.1.0
 
 ## v2.0.0
 
@@ -486,7 +486,7 @@ We'd like to thank all the contributors who worked on this release!
 - Use release-drafter
 - Update GitHub workflows
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.10.1...v2.0.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.10.1...v2.0.0
 
 ## v1.10.1
 
@@ -498,7 +498,7 @@ We'd like to thank all the contributors who worked on this release!
 
 * @the-wondersmith made their first contribution in #67
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.10.0...v1.10.1
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.10.0...v1.10.1
 
 ## v1.10.0
 
@@ -508,14 +508,14 @@ We'd like to thank all the contributors who worked on this release!
 * Test get float-type behavior in #59
 * Implement `BZPOPMIN`/`BZPOPMAX` support in #60
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.9.4...v1.10.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.9.4...v1.10.0
 
 ## v1.9.4
 
 ### What's Changed
 
-* Separate LUA support to a different file in [#55](https://github.com/cunla/fakeredis-py/pull/55)
-  **Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.9.3...v1.9.4
+* Separate LUA support to a different file in [#55](https://github.com/cunla/fake-dragonflydb/pull/55)
+  **Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.9.3...v1.9.4
 
 ## v1.9.3
 
@@ -523,34 +523,34 @@ We'd like to thank all the contributors who worked on this release!
 
 * Removed python-six dependency
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.9.2...v1.9.3
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.9.2...v1.9.3
 
 ## v1.9.2
 
 #### What's Changed
 
-* zadd support for GT/LT in [#49](https://github.com/cunla/fakeredis-py/pull/49)
-* Remove `six` dependency in [#51](https://github.com/cunla/fakeredis-py/pull/51)
-* Add host to `conn_pool_args`  in [#51](https://github.com/cunla/fakeredis-py/pull/51)
+* zadd support for GT/LT in [#49](https://github.com/cunla/fake-dragonflydb/pull/49)
+* Remove `six` dependency in [#51](https://github.com/cunla/fake-dragonflydb/pull/51)
+* Add host to `conn_pool_args`  in [#51](https://github.com/cunla/fake-dragonflydb/pull/51)
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.9.1...v1.9.2
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.9.1...v1.9.2
 
 ## v1.9.1
 
 #### What's Changed
 
-* Zrange byscore in [#44](https://github.com/cunla/fakeredis-py/pull/44)
-* Expire options in [#46](https://github.com/cunla/fakeredis-py/pull/46)
+* Zrange byscore in [#44](https://github.com/cunla/fake-dragonflydb/pull/44)
+* Expire options in [#46](https://github.com/cunla/fake-dragonflydb/pull/46)
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.9.0...v1.9.1
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.9.0...v1.9.1
 
 ## v1.9.0
 
 #### What's Changed
 
-* Enable redis7 support in [#42](https://github.com/cunla/fakeredis-py/pull/42)
+* Enable redis7 support in [#42](https://github.com/cunla/fake-dragonflydb/pull/42)
 
-**Full Changelog**: https://github.com/cunla/fakeredis-py/compare/v1.8.2...v1.9.0
+**Full Changelog**: https://github.com/cunla/fake-dragonflydb/compare/v1.8.2...v1.9.0
 
 ## v1.8.2
 

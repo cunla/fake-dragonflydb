@@ -349,11 +349,11 @@ You can support this project by becoming a sponsor using [this link][2].
 
 [4]:./guides/test-case/
 
-[5]:https://github.com/cunla/fakeredis-py/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
+[5]:https://github.com/cunla/fake-dragonflydb/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
 
 [6]:./redis-commands/
 
-[7]:https://github.com/cunla/fakeredis-py/issues/292
+[7]:https://github.com/cunla/fake-dragonflydb/issues/292
 
 [8]:https://github.com/jazzband/django-redis
 
