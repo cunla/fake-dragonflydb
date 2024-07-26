@@ -49,6 +49,6 @@ run_test_if_lupa = pytest.mark.skipif(
 
 fake_only = pytest.mark.parametrize(
     'create_redis',
-    [pytest.param('FakeStrictRedis', marks=pytest.mark.fake)],
+    [pytest.param('FakeStrictDragonDB', marks=pytest.mark.fake)],
     indirect=True
 )

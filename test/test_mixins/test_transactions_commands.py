@@ -295,8 +295,8 @@ def test_watch_state_is_cleared_across_multiple_watches(r: redis.Redis):
 
 @pytest.mark.fake
 def test_socket_cleanup_watch(fake_server):
-    r1 = fakeredis.FakeStrictRedis(server=fake_server)
-    r2 = fakeredis.FakeStrictRedis(server=fake_server)
+    r1 = fake_dragonflydb.FakeStrictDragonDB(server=fake_server)
+    r2 = fake_dragonflydb.FakeStrictDragonDB(server=fake_server)
     pipeline = r1.pipeline(transaction=False)
     # This needs some poking into redis-py internals to ensure that we reach
     # FakeSocket._cleanup. We need to close the socket while there is still
@@ -321,7 +321,7 @@ def test_get_within_pipeline(r: redis.Redis):
 
 @pytest.mark.fake
 def test_get_within_pipeline_w_host():
-    r = fakeredis.FakeAsyncDragonDB('localhost')
+    r = fake_dragonflydb.FakeAsyncDragonDB('localhost')
     r.set("test", "foo")
     r.set("test2", "foo2")
     expected_keys = set(r.keys())
@@ -333,7 +333,7 @@ def test_get_within_pipeline_w_host():
 
 @pytest.mark.fake
 def test_get_within_pipeline_no_args():
-    r = fakeredis.FakeAsyncDragonDB()
+    r = fake_dragonflydb.FakeAsyncDragonDB()
     r.set("test", "foo")
     r.set("test2", "foo2")
     expected_keys = set(r.keys())

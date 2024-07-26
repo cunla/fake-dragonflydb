@@ -9,7 +9,7 @@ from fake_dragonflydb._server import _create_version
 
 
 def _check_lua_module_supported() -> bool:
-    redis = fakeredis.FakeAsyncDragonDB(lua_modules={'cjson'})
+    redis = fake_dragonflydb.FakeAsyncDragonDB(lua_modules={'cjson'})
     try:
         redis.eval("return cjson.encode({})", 0)
         return True
@@ -36,7 +36,7 @@ def real_redis_version() -> Union[None, str]:
 def _fake_server(request):
     min_server_marker = request.node.get_closest_marker('min_server')
     server_version = min_server_marker.args[0] if min_server_marker else '6.2'
-    server = fakeredis.FakeServer(version=server_version)
+    server = fake_dragonflydb.FakeServer(version=server_version)
     server.connected = request.node.get_closest_marker('disconnected') is None
     return server
 
@@ -65,7 +65,7 @@ def _marker_version_value(request, marker_name: str):
     name='create_redis',
     params=[
         pytest.param('StrictRedis', marks=pytest.mark.real),
-        pytest.param('FakeStrictRedis', marks=pytest.mark.fake),
+        pytest.param('FakeStrictDragonDB', marks=pytest.mark.fake),
     ]
 )
 def _create_redis(request) -> Callable[[int], redis.Redis]:
@@ -89,7 +89,7 @@ def _create_redis(request) -> Callable[[int], redis.Redis]:
     def factory(db=2):
         if cls_name.startswith('Fake'):
             fake_server = request.getfixturevalue('fake_server')
-            cls = getattr(fakeredis, cls_name)
+            cls = getattr(fake_dragonflydb, cls_name)
             return cls(db=db, decode_responses=decode_responses, server=fake_server, lua_modules=lua_modules)
         # Real
         cls = getattr(redis, cls_name)
@@ -122,7 +122,7 @@ async def _req_aioredis2(request) -> redis.asyncio.Redis:
         pytest.skip('LUA modules not supported by fakeredis')
     if request.param == 'fake':
         fake_server = request.getfixturevalue('fake_server')
-        ret = fakeredis.FakeAsyncRedis(server=fake_server, lua_modules=lua_modules)
+        ret = fake_dragonflydb.FakeAsyncRedis(server=fake_server, lua_modules=lua_modules)
     else:
         ret = redis.asyncio.Redis(host='localhost', port=6380, db=2)
         fake_server = None

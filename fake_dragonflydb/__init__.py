@@ -4,7 +4,7 @@ from ._server import (
     FakeStrictDragonDB,
     FakeConnection,
 )
-from .aioredis import (
+from .async_db import (
     FakeAsyncDragonDB,
     FakeAsyncConnection,
 )
@@ -13,13 +13,13 @@ try:
     from importlib import metadata
 except ImportError:  # for Python < 3.8
     import importlib_metadata as metadata  # type: ignore
-__version__ = metadata.version("fakeredis")
+__version__ = metadata.version("fake-dragonflydb")
 __author__ = "Daniel Moran"
 __maintainer__ = "Daniel Moran"
 __email__ = "daniel@moransoftware.ca"
 __license__ = "BSD-3-Clause"
-__url__ = "https://github.com/cunla/fakeredis"
-__bugtrack_url__ = "https://github.com/cunla/fakeredis/issues"
+__url__ = "https://github.com/cunla/fakeredis-py"
+__bugtrack_url__ = "https://github.com/cunla/fakeredis-py/issues"
 
 __all__ = [
     "FakeServer",

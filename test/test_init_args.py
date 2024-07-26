@@ -25,11 +25,11 @@ def test_multidb(create_redis):
 @pytest.mark.fake
 class TestInitArgs:
     def test_singleton(self):
-        shared_server = fakeredis.FakeServer()
-        r1 = fakeredis.FakeAsyncDragonDB()
-        r2 = fakeredis.FakeAsyncDragonDB(server=fakeredis.FakeServer())
-        r3 = fakeredis.FakeAsyncDragonDB(server=shared_server)
-        r4 = fakeredis.FakeAsyncDragonDB(server=shared_server)
+        shared_server = fake_dragonflydb.FakeServer()
+        r1 = fake_dragonflydb.FakeAsyncDragonDB()
+        r2 = fake_dragonflydb.FakeAsyncDragonDB(server=fake_dragonflydb.FakeServer())
+        r3 = fake_dragonflydb.FakeAsyncDragonDB(server=shared_server)
+        r4 = fake_dragonflydb.FakeAsyncDragonDB(server=shared_server)
 
         r1.set('foo', 'bar')
         r3.set('bar', 'baz')
@@ -43,32 +43,32 @@ class TestInitArgs:
         assert 'bar' not in r1
 
     def test_host_init_arg(self):
-        db = fakeredis.FakeStrictRedis(host='localhost')
+        db = fake_dragonflydb.FakeStrictDragonDB(host='localhost')
         db.set('foo', 'bar')
         assert db.get('foo') == b'bar'
 
     def test_from_url(self):
-        db = fakeredis.FakeStrictRedis.from_url(
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url(
             'redis://localhost:6380/0')
         db.set('foo', 'bar')
         assert db.get('foo') == b'bar'
 
     def test_from_url_user(self):
-        db = fakeredis.FakeStrictRedis.from_url(
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url(
             'redis://user@localhost:6380/0')
         db.set('foo', 'bar')
         assert db.get('foo') == b'bar'
 
     def test_from_url_user_password(self):
-        db = fakeredis.FakeStrictRedis.from_url(
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url(
             'redis://user:password@localhost:6380/0')
         db.set('foo', 'bar')
         assert db.get('foo') == b'bar'
 
     def test_from_url_with_db_arg(self):
-        db = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/0')
-        db1 = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/1')
-        db2 = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/', db=2)
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/0')
+        db1 = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/1')
+        db2 = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/', db=2)
         db.set('foo', 'foo0')
         db1.set('foo', 'foo1')
         db2.set('foo', 'foo2')
@@ -78,16 +78,16 @@ class TestInitArgs:
 
     def test_from_url_db_value_error(self):
         # In the case of ValueError, should default to 0, or be absent in redis-py 4.0
-        db = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/a')
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/a')
         assert db.connection_pool.connection_kwargs.get('db', 0) == 0
 
     def test_can_pass_through_extra_args(self):
-        db = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/0', decode_responses=True)
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/0', decode_responses=True)
         db.set('foo', 'bar')
         assert db.get('foo') == 'bar'
 
     def test_can_allow_extra_args(self):
-        db = fakeredis.FakeStrictRedis.from_url(
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url(
             'redis://localhost:6380/0',
             socket_connect_timeout=11, socket_timeout=12, socket_keepalive=True,
             socket_keepalive_options={60: 30}, socket_type=1,
@@ -102,7 +102,7 @@ class TestInitArgs:
         assert fake_conn.retry_on_timeout is True
 
         # Make fallback logic match redis-py
-        db = fakeredis.FakeStrictRedis.from_url(
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url(
             'redis://localhost:6380/0',
             socket_connect_timeout=None, socket_timeout=30
         )
@@ -113,53 +113,53 @@ class TestInitArgs:
     def test_repr(self):
         # repr is human-readable, so we only test that it doesn't crash,
         # and that it contains the db number.
-        db = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/11')
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/11')
         rep = repr(db)
         assert 'db=11' in rep
 
     def test_from_unix_socket(self):
-        db = fakeredis.FakeStrictRedis.from_url('unix://a/b/c')
+        db = fake_dragonflydb.FakeStrictDragonDB.from_url('unix://a/b/c')
         db.set('foo', 'bar')
         assert db.get('foo') == b'bar'
 
     def test_same_connection_params(self):
-        r1 = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/11')
-        r2 = fakeredis.FakeStrictRedis.from_url('redis://localhost:6380/11')
-        r3 = fakeredis.FakeStrictRedis(server=fakeredis.FakeServer())
+        r1 = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/11')
+        r2 = fake_dragonflydb.FakeStrictDragonDB.from_url('redis://localhost:6380/11')
+        r3 = fake_dragonflydb.FakeStrictDragonDB(server=fake_dragonflydb.FakeServer())
         r1.set('foo', 'bar')
         assert r2.get('foo') == b'bar'
         assert not r3.exists('foo')
 
     def test_new_server_with_positional_args(self):
-        from fake_dragonflydb import fake_dragonflydb
+        from fake_dragonflydb import FakeDragonDB
 
         # same host, default port and db index
-        fake_redis_1 = FakeRedis('localhost')
-        fake_redis_2 = FakeRedis('localhost')
+        fake_redis_1 = FakeDragonDB('localhost')
+        fake_redis_2 = FakeDragonDB('localhost')
 
         fake_redis_1.set("foo", "bar")
 
         assert fake_redis_2.get("foo") == b'bar'
 
         # same host and port
-        fake_redis_1 = FakeRedis('localhost', 6000)
-        fake_redis_2 = FakeRedis('localhost', 6000)
+        fake_redis_1 = FakeDragonDB('localhost', 6000)
+        fake_redis_2 = FakeDragonDB('localhost', 6000)
 
         fake_redis_1.set("foo", "bar")
 
         assert fake_redis_2.get("foo") == b'bar'
 
         # same connection parameters, but different db index
-        fake_redis_1 = FakeRedis('localhost', 6000, 0)
-        fake_redis_2 = FakeRedis('localhost', 6000, 1)
+        fake_redis_1 = FakeDragonDB('localhost', 6000, 0)
+        fake_redis_2 = FakeDragonDB('localhost', 6000, 1)
 
         fake_redis_1.set("foo", "bar")
 
         assert fake_redis_2.get("foo") is None
 
         # mix of positional arguments and keyword args
-        fake_redis_1 = FakeRedis('localhost', port=6000, db=0)
-        fake_redis_2 = FakeRedis('localhost', port=6000, db=1)
+        fake_redis_1 = FakeDragonDB('localhost', port=6000, db=0)
+        fake_redis_2 = FakeDragonDB('localhost', port=6000, db=1)
 
         fake_redis_1.set("foo", "bar")
 
