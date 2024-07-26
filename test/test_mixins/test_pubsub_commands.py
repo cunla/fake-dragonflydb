@@ -341,8 +341,8 @@ def test_pubsub_timeout(r, timeout_value):
 
 @pytest.mark.fake
 def test_socket_cleanup_pubsub(fake_server):
-    r1 = fakeredis.FakeStrictRedis(server=fake_server)
-    r2 = fakeredis.FakeStrictRedis(server=fake_server)
+    r1 = fake_dragonflydb.FakeStrictDragonDB(server=fake_server)
+    r2 = fake_dragonflydb.FakeStrictDragonDB(server=fake_server)
     ps = r1.pubsub()
     with ps:
         ps.subscribe('test')
